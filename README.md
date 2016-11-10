@@ -26,6 +26,9 @@ Optimization for main.js:
 - moving select query to elements outside of for loops;
 - move 'var phase' outside the for loop - will prevent creation of variable each iteration;
 - optimized number of floating pizzas - giveMeMorePizza() function. Listen on 'resize' event;
+- replace document.querySelector to document.getElementById() calls.
+- changePizzaSizes - bug fixed;
+- newwidth -> newWidth typo fixed;
 
 ####How to run the application
 

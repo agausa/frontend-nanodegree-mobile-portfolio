@@ -406,13 +406,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -455,21 +455,24 @@ var resizePizzas = function(size) {
     var newWidth = 0;
     switch(size) {
       case "1":
-        return 25;
+        newWidth = 25;
+        break;
       case "2":
-        return 33.33;
+        newWidth = 33.33;
+        break;
       case "3":
-        return 50;
+        newWidth = 50;
+        break;
       default:
         console.log("bug in sizeSwitcher");
     }
 
     // get collection of pizzas
-    var randPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var randPizzas = document.getElementsByClassName("randomPizzaContainer");
 
     // set style in one loop
     for (var i = 0; i < randPizzas.length; i++)
-      randPizzas[i].style.width = newwidth + '%';
+      randPizzas[i].style.width = newWidth + '%';
   }
 
   changePizzaSizes(size);
@@ -547,8 +550,7 @@ window.addEventListener('resize', giveMeMorePizza);
 
 document.addEventListener('DOMContentLoaded',  giveMeMorePizza());
 
-function giveMeMorePizza()
-{
+function giveMeMorePizza(){
   var elem = document.createElement('img');
   var pizza = document.getElementById('movingPizzas1');
 
@@ -563,8 +565,7 @@ function giveMeMorePizza()
   var row = window.innerHeight/s;
   var numberOfPiazzas = cols*row;
 
-  for (var i = 0; i < numberOfPiazzas; i++)
-  {
+  for (var i = 0; i < numberOfPiazzas; i++){
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
